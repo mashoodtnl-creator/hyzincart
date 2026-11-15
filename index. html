@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HyzCart | Official HYZIN Smart Baby Cradle Store</title>
+<meta name="description" content="HyzCart, the official HYZIN smart baby cradle store. A cradle that listens, rocks and sings. Free delivery, secure UPI payment and 7 day return. Tirurangadi and all India.">
+<meta property="og:title" content="HyzCart | Official HYZIN Smart Baby Cradle Store">
+<meta property="og:description" content="A cradle that listens. Rocks. Sings. Free delivery and Google Pay across India.">
+<meta property="og:type" content="website">
+<style>
+/* 1. COLORS (edit here). Dark mode values are repeated below. */
+:root{--bg:#F1F3F6;--card:#FFFFFF;--ink:#18181B;--muted:#6B7280;--line:#E4E4E7;--green:#15803D;--red:#B91C1C;--y:#DFE104;--k:#09090B;--org:#C2410C;--focus:#09090B;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F0F12;--card:#1B1B20;--ink:#FAFAFA;--muted:#A1A1AA;--line:#3F3F46;--green:#4ADE80;--red:#F87171;--focus:#DFE104}}
+:root[data-theme="dark"]{--bg:#0F0F12;--card:#1B1B20;--ink:#FAFAFA;--muted:#A1A1AA;--line:#3F3F46;--green:#4ADE80;--red:#F87171;--focus:#DFE104}
+/* 2. BASE */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Malayalam",sans-serif;padding-bottom:64px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:40}
+img{max-width:100%;display:block}button,input,select,textarea{font:inherit;color:inherit}button{background:none;border:0;cursor:pointer}a{color:inherit}ul{list-style:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}.hdr :focus-visible{outline-color:var(--y)}
+[hidden]{display:none!important}.w{max-width:1280px;margin:0 auto;padding:0 12px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.b{min-height:44px;padding:0 16px;border-radius:8px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;text-align:center}
+.by{background:var(--y);color:#000}.bo{background:var(--org);color:#fff}.bk{background:var(--k);color:#fff}.bl{border:2px solid var(--ink)}.b:disabled{opacity:.45;pointer-events:none}
+.sec{margin-top:22px}.sec h2{font-size:1.4rem;margin-bottom:10px;letter-spacing:-.02em}
+/* 3. TOP BARS + HEADER */
+.fl{background:linear-gradient(90deg,#991B1B,#DC2626);color:#fff;text-align:center;font-weight:700;padding:6px 10px;font-size:14px}
+.top{background:var(--y);color:#000;text-align:center;font-weight:700;padding:5px 10px;font-size:13px}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--k);color:#fff}
+.hr1{display:flex;align-items:center;gap:6px;padding:8px 0;flex-wrap:wrap}
+.logo{font-size:24px;font-weight:700;letter-spacing:-.03em;color:#fff;text-decoration:none;margin-right:auto}.logo i{font-style:normal;color:var(--y)}
+.ib{position:relative;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;color:#fff;border-radius:8px}.ib:hover{background:#27272A}
+.ic{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ref{background:linear-gradient(90deg,#6D28D9,#BE185D);color:#fff;font-weight:700;font-size:13px;min-height:36px;padding:0 12px;border-radius:999px}
+.cnt{position:absolute;top:2px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--y);color:#000;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.sf{display:flex;flex:1 1 100%;order:5;position:relative;padding-bottom:8px}
+.sf input{flex:1;min-width:0;height:46px;border:0;border-radius:8px 0 0 8px;padding:0 12px;background:#fff;color:#18181B}
+.sf button{width:48px;height:46px;background:#fff;color:#18181B;border-left:1px solid #E4E4E7}.sf button:last-child{background:var(--y);color:#000;border-radius:0 8px 8px 0}
+.dl{display:block;width:100%;text-align:left;background:var(--card);padding:10px 12px;font-weight:700;border-bottom:1px solid var(--line);min-height:44px}
+@media(min-width:768px){.sf{flex:1;order:0;padding:0}.hr1{flex-wrap:nowrap}.logo{margin-right:12px}}
+/* 4. CATEGORIES */
+.cc{display:flex;gap:14px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.cc button{flex:none;width:68px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:700}
+.cc span{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ink)}
+.cc button[aria-pressed="true"] span{background:var(--y);color:#000;border-color:var(--k)}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media(min-width:768px){.tiles{grid-template-columns:repeat(4,1fr)}}
+.tiles button{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:16px 10px;font-weight:700;min-height:70px}.tiles button:hover{border-color:var(--ink)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px}.chips button{flex:none;min-height:40px;padding:0 14px;border:2px solid var(--line);border-radius:999px;background:var(--card);font-weight:700}
+.chips button[aria-pressed="true"]{background:var(--k);color:#fff;border-color:var(--k)}
+/* 5. HERO + TRUST + FLASH + REFER */
+.hero{position:relative;margin-top:10px;border-radius:12px;overflow:hidden}
+.sl{display:none;min-height:210px;padding:26px 22px 44px;flex-direction:column;justify-content:center;gap:10px}.sl.on{display:flex}
+.sl h2{font-size:clamp(1.8rem,6vw,3rem);line-height:1.05;margin:0;letter-spacing:-.03em}.sl .b{align-self:flex-start}
+.s0{background:var(--k);color:#fff}.s0 em{color:var(--y);font-style:normal}.s1{background:var(--y);color:#000}.s2{background:#27272A;color:#fff}
+.dots{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:center}.dots button{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+.dots button::after{content:"";width:10px;height:10px;border-radius:5px;background:#fff;border:1px solid #000}.dots button[aria-current="true"]::after{width:24px;background:var(--org)}
+.ar{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:#000;font-size:22px;font-weight:700}.al{left:8px}.arr{right:8px}
+.tr{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}@media(min-width:768px){.tr{grid-template-columns:repeat(4,1fr)}}
+.tr div{background:var(--card);border-radius:10px;padding:10px;font-weight:700;font-size:14px}.tr small{display:block;color:var(--muted);font-weight:500}
+.fb{background:linear-gradient(135deg,#991B1B,#DC2626);color:#fff;border-radius:12px;padding:14px;margin-top:12px}
+.fb h2{color:#fff;font-size:1.15rem;margin:0}.tm{font-size:1.8rem;font-weight:700;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.fb ul{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.fb li{background:rgba(0,0,0,.3);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700}
+.rf{background:linear-gradient(90deg,#6D28D9,#BE185D);color:#fff;border-radius:12px;padding:14px;margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.rf b{font-size:1.1rem}.rf .b{background:#fff;color:#000}
+/* 6. FILTERS + PRODUCT CARDS */
+.fbar{display:flex;flex-wrap:wrap;gap:8px;background:var(--card);border-radius:12px;padding:10px;margin-bottom:10px;align-items:center}
+.fbar select{min-height:44px;border:2px solid var(--line);border-radius:8px;padding:0 8px;background:var(--card)}
+.fbar label{display:flex;align-items:center;gap:6px;min-height:44px;font-weight:700}.fbar input{width:20px;height:20px;accent-color:var(--k)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr);gap:12px}}
+.c{background:var(--card);border-radius:12px;overflow:hidden;position:relative;display:flex;flex-direction:column;border:1px solid var(--line)}
+.ci{display:block;width:100%;aspect-ratio:1;background:var(--bg)}.ci img{width:100%;height:100%;object-fit:cover}
+.dt{position:absolute;top:8px;left:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:2px 7px;border-radius:4px}
+.hrt{position:absolute;top:4px;right:4px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);color:#52525B;font-size:22px}.hrt[aria-pressed="true"]{color:#DC2626}
+.cb{padding:10px;display:flex;flex-direction:column;gap:5px;flex:1}.nm{text-align:left;font-weight:700;line-height:1.2}
+.ds{font-size:14px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rp{background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:2px 6px;border-radius:4px}.ml{background:var(--k);color:var(--y);font-size:12px;font-weight:700;padding:2px 6px;border-radius:4px}
+.pr b{font-size:1.3rem}.pr s{color:var(--muted);margin:0 6px;font-size:14px}.g{color:var(--green);font-weight:700;font-size:13px}
+.of{background:var(--bg);border-radius:6px;padding:4px 8px;font-size:13px;font-weight:700}.lo{color:var(--red);font-weight:700;font-size:13px}
+.ca{display:grid;gap:6px;margin-top:auto;padding-top:4px}.ca .b{min-height:44px;font-size:14px}.ca .dd{background:var(--red);color:#fff}
+.none{background:var(--card);border-radius:12px;padding:28px;text-align:center;color:var(--muted);grid-column:1/-1}
+/* 7. PAGES */
+.two{display:grid;gap:12px}@media(min-width:768px){.two{grid-template-columns:repeat(3,1fr)}}
+.pc{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}.pc.rec{border-color:var(--k);box-shadow:0 0 0 2px var(--y)}
+.pc h3{font-size:1.3rem}.pc li{padding-left:16px;position:relative}.pc li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--green);border-radius:50%}
+.tg{background:var(--y);color:#000;font-weight:700;font-size:12px;padding:2px 8px;border-radius:4px;align-self:flex-start}
+.q{background:var(--card);border-radius:12px;padding:14px;border-left:4px solid var(--y);color:var(--muted)}.q b{color:var(--ink);display:block}
+.pa{background:var(--card);border-radius:12px;padding:16px;color:var(--muted)}
+.st{display:flex;gap:4px;margin:12px 0}.st div{flex:1;text-align:center;padding:10px 2px;border-radius:8px;background:var(--line);font-weight:700;font-size:13px}.st .on{background:var(--green);color:#fff}
+.frm{display:grid;gap:10px}.f{display:grid;gap:3px}.f label{font-weight:700;font-size:14px}
+.f input,.f textarea,.f select{min-height:46px;border:2px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--card)}.f textarea{min-height:80px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.msg{color:var(--red);font-weight:700;min-height:1.3em}
+.ftr{background:var(--k);color:#D4D4D8;margin-top:28px;padding:24px 0}.ftr .two{gap:18px}.ftr h3{color:#fff;margin-bottom:6px}.ftr a{display:block;min-height:36px;text-decoration:none;padding-top:6px}.ftr a:hover{color:var(--y)}
+.bn{position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--k);display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:env(safe-area-inset-bottom,0px);border-top:2px solid #27272A}
+.bn a,.bn button{min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#D4D4D8;text-decoration:none}.bn a:hover,.bn button:hover{color:var(--y)}
+@media(min-width:768px){.bn{display:none}body{padding-bottom:0}}
+/* 8. DRAWERS, MODALS, TOAST */
+#sc{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:55;opacity:0;visibility:hidden;transition:opacity .2s}#sc.on{opacity:1;visibility:visible}
+.lyr{position:fixed;z-index:60;background:var(--bg);visibility:hidden;transition:transform .25s,visibility 0s .25s;overflow-y:auto}.lyr.on{visibility:visible;transform:none;transition:transform .25s}
+.dr{top:0;right:0;bottom:0;width:min(460px,100%);transform:translateX(100%);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom,0px)}
+.md{inset:0;transform:translateY(100%);padding-top:env(safe-area-inset-top,0px)}@media(min-width:768px){.md{inset:4vh auto 4vh 50%;width:min(720px,94vw);margin-left:min(-360px,-47vw);border-radius:12px}}
+.lh{display:flex;align-items:center;justify-content:space-between;background:var(--k);color:#fff;padding-left:14px;position:sticky;top:0;z-index:2}.lh h2{font-size:1.1rem}.lh .ib{font-weight:700}
+.lb{padding:12px;flex:1;overflow-y:auto}.lf{background:var(--card);padding:12px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center}.lf .tt{flex:1;font-size:13px;color:var(--muted)}.lf .tt b{display:block;font-size:1.3rem;color:var(--ink)}
+.it{display:grid;grid-template-columns:70px 1fr;gap:10px;background:var(--card);border-radius:10px;padding:10px;margin-bottom:8px}.it img{width:70px;height:70px;object-fit:cover;border-radius:6px}
+.qt{display:inline-flex;border:2px solid var(--line);border-radius:8px;align-items:center}.qt button{width:40px;height:40px;font-weight:700;font-size:20px}.qt output{min-width:30px;text-align:center;font-weight:700}
+.rm{color:var(--red);font-weight:700;min-height:44px;padding:0 8px}
+.bill{background:var(--card);border-radius:10px;padding:12px;display:grid;gap:6px}.bill div{display:flex;justify-content:space-between}.bill .tot{border-top:1px dashed var(--line);padding-top:6px;font-weight:700;font-size:1.1rem}.bill .sv{color:var(--green);font-weight:700}
+.pg{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin:6px 0}.pg i{display:block;height:100%;background:var(--green)}
+.ok{background:var(--card);border-radius:10px;padding:12px;display:grid;gap:8px}.ok textarea{min-height:120px;border:2px solid var(--line);border-radius:8px;padding:8px;background:var(--bg)}
+#toast{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);background:var(--k);color:#fff;border:2px solid var(--y);font-weight:700;padding:10px 18px;border-radius:8px;z-index:80;opacity:0;visibility:hidden;transition:opacity .2s;max-width:92vw;text-align:center}#toast.on{opacity:1;visibility:visible}
+@media(min-width:768px){#toast{bottom:24px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-s" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol><symbol id="i-m" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-h" viewBox="0 0 24 24"><path d="M12 21s-7-4.6-9.3-9A5.5 5.5 0 0 1 12 6.6 5.5 5.5 0 0 1 21.3 12c-2.3 4.4-9.3 9-9.3 9z"/></symbol><symbol id="i-c" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 11.5a1 1 0 0 0 1 .8h8.6a1 1 0 0 0 1-.8L20 7H6"/></symbol><symbol id="i-u" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol></svg>
+<div id="app">
+<div class="fl">FLASH SALE LIVE - Up to 50% OFF - Ends Tonight 12 AM</div>
+<div class="top">Free Delivery • Google Pay / UPI • 7 Days Return • Code HYZ100 = Rs 100 OFF</div>
+<header class="hdr"><div class="w"><div class="hr1">
+<a class="logo" href="#top">Hyz<i>Cart</i></a>
+<button class="ib" id="bProf" aria-label="My orders"><svg class="ic"><use href="#i-u"/></svg></button>
+<button class="ref" id="bRef">Refer and Earn</button>
+<button class="ib" id="bWish" aria-label="Wishlist"><svg class="ic"><use href="#i-h"/></svg><span class="cnt" id="nW" hidden>0</span></button>
+<button class="ib" id="bCart" aria-label="Cart"><svg class="ic"><use href="#i-c"/></svg><span class="cnt" id="nC" hidden>0</span></button>
+<form class="sf" id="sf" role="search"><input id="q" type="search" placeholder="ഉൽപ്പന്നത്തിന്റെ പേര് / ഐഡി വെച്ച്... Search cradles..." aria-label="Search products" autocomplete="off"><button type="button" id="mic" aria-label="Voice search"><svg class="ic"><use href="#i-m"/></svg></button><button type="submit" aria-label="Search"><svg class="ic"><use href="#i-s"/></svg></button></form>
+</div></div></header>
+<button class="dl" id="dl">Tirurangadi - 676508 നു ഡെലിവറി ചെയ്യുന്നു ›</button>
+<main id="top"><div class="w">
+<div class="cc" id="cc"></div>
+<section class="hero" aria-roledescription="carousel" aria-label="Offers">
+<div class="sl s0 on"><h2>A cradle that <em>listens</em></h2><p>Rocks. Sings. Starts on its own when your baby cries.</p><button class="b by" data-c="Cradles">Shop cradles</button></div>
+<div class="sl s1"><h2>Free Delivery.<br>Pay with Google Pay</h2><p>Tirurangadi and all India. 7 days return.</p><button class="b bk" data-c="All">Shop all</button></div>
+<div class="sl s2"><h2>Nursery essentials</h2><p>Lamps, speakers, bedding and more.</p><button class="b by" data-c="Nursery">Shop nursery</button></div>
+<button class="ar al" id="pS" aria-label="Previous slide">‹</button><button class="ar arr" id="nS" aria-label="Next slide">›</button><div class="dots" id="dots"></div></section>
+<div class="tr"><div>Free Delivery<small>All India</small></div><div>Google Pay<small>UPI payments</small></div><div>7 Days Return<small>Easy</small></div><div>WhatsApp Support<small>+91 97444 36943</small></div></div>
+<section class="fb" aria-label="Flash sale"><h2>FLASH SALE LIVE - Up to 50% OFF - Ends Tonight 12 AM</h2><div>Ends in <span class="tm" id="tm">00 : 00 : 00</span></div>
+<ul><li>Only few left</li><li>12 People Viewing Now</li><li>Bank Offer: 10% off on UPI</li><li>Code HYZ100 = Rs 100 OFF</li></ul></section>
+<section class="rf"><div><b>Refer and Earn - Rs 100 per Friend</b><div>Share HyzCart with friends and family.</div></div><button class="b" id="cpRef">Copy Refer Link</button></section>
+<section class="sec"><h2>Shop by category</h2><div class="tiles" id="tiles"></div></section>
+<section class="sec" id="shop"><h2>All products</h2><div class="chips" id="chips"></div>
+<div class="fbar"><label><input type="checkbox" id="fFree">Free Delivery</label>
+<select id="fP" aria-label="Price"><option value="">Any price</option><option value="u">Under 1000</option><option value="m">1000-5000</option><option value="o">5000+</option></select>
+<select id="fD" aria-label="Discount"><option value="0">Any discount</option><option value="20">20%+</option><option value="30">30%+</option></select>
+<select id="fR" aria-label="Rating"><option value="0">Any rating</option><option value="4">4+ stars</option></select>
+<select id="fS" aria-label="Sort"><option value="rel">Relevance</option><option value="lo">Low to High</option><option value="hi">High to Low</option><option value="rt">Rating</option><option value="ds">Discount</option></select>
+<span id="cn" aria-live="polite" style="font-weight:700"></span></div>
+<div class="grid" id="grid"></div></section>
+<section class="sec"><button class="b by" id="bSell" style="width:100%;min-height:52px">+ Add Product (Seller)</button></section>
+<section class="sec" id="about"><h2>About HyzCart</h2><p class="pa">HYZIN began in Kerala after sleepless nights with our own baby. We wanted a cradle that listens first, so it starts rocking and playing a lullaby the moment your baby cries. HyzCart is the official HYZIN store for Tirurangadi (676508) and all India. HYZIN products are for comfort and are not medical devices.</p></section>
+<section class="sec"><h2>Services and pricing</h2><div class="two">
+<div class="pc"><h3>Basic</h3><b>₹4,999</b><ul><li>Motor rocking and speed control</li><li>Built-in lullabies</li><li>Free Delivery • Google Pay / UPI</li></ul><a class="b bl" data-t="Basic" href="#">Ask on WhatsApp</a></div>
+<div class="pc rec"><span class="tg">RECOMMENDED</span><h3>Smart</h3><b>₹7,999</b><ul><li>AI cry detection, auto rocking</li><li>App control, sleep tracking</li><li>Free Delivery • Google Pay / UPI</li></ul><a class="b by" data-t="Smart" href="#">Ask on WhatsApp</a></div>
+<div class="pc"><h3>Premium</h3><b>₹10,999</b><ul><li>Everything in Smart</li><li>Planned extras: display, temperature, fan</li><li>Free Delivery • Google Pay / UPI</li></ul><a class="b bl" data-t="Premium" href="#">Ask on WhatsApp</a></div></div></section>
+<section class="sec"><h2>Testimonials</h2><div class="two" id="tst"></div></section>
+<section class="sec" id="track"><h2>Track order</h2><div class="pa"><div id="tkI">Demo order</div><div class="st" id="st"></div><button class="b bk" id="tkN">Next status (demo)</button></div></section>
+<section class="sec" id="contact"><h2>Contact us</h2><form class="frm pa" id="cf" novalidate>
+<div class="f"><label for="cN">Name</label><input id="cN"></div><div class="r2"><div class="f"><label for="cE">Email</label><input id="cE" type="email"></div><div class="f"><label for="cP">Phone</label><input id="cP" type="tel" inputmode="numeric"></div></div>
+<div class="f"><label for="cM">Message</label><textarea id="cM"></textarea></div><p class="msg" id="cX" role="alert"></p><button class="b by" type="submit">Send on WhatsApp</button></form></section>
+</div></main>
+<footer class="ftr"><div class="w"><div class="two">
+<div><h3>About</h3><p>HyzCart - Official HYZIN Smart Baby Cradle Store. Tirurangadi - 676508 and All India.</p><a href="https://www.hyzinsmart.com" target="_blank" rel="noopener">www.hyzinsmart.com</a></div>
+<div><h3>Help and policy</h3><a href="https://wa.me/919744436943" target="_blank" rel="noopener">WhatsApp +91 97444 36943</a><a href="tel:+919744436943">Call +91 97444 36943</a><span>Google Pay / UPI payments. Free delivery. 7 days return.</span></div>
+<div><h3>Mail us</h3><a href="mailto:hyzinsmartcradle@gmail.com">hyzinsmartcradle@gmail.com</a><a href="mailto:mashoodtnl@gmail.com">mashoodtnl@gmail.com</a></div></div></div></footer>
+<nav class="bn" aria-label="Quick links"><a href="#top">ഹോം</a><a href="#cc">വിഭാഗങ്ങൾ</a><button id="nMall">Mall</button><a href="#tst">Video Finds</a><a href="#track">ഓർഡറുകൾ</a></nav>
+</div>
+<div id="sc"></div>
+<aside class="lyr dr" id="dC" aria-label="Cart"><div class="lh"><h2 id="cT">My cart</h2><button class="ib" data-x>Close</button></div>
+<div id="cV" style="display:contents"><div class="lb" id="cL"></div><div class="lf"><div class="tt">Total<b id="cTot">₹0</b></div><button class="b by" id="goCo" style="flex:1">Place order</button></div></div>
+<div id="kV" style="display:contents" hidden><div class="lb"><button class="rm" id="bk" type="button">‹ Back to cart</button><form class="frm" id="kf" novalidate>
+<div class="f"><label for="kN">Full name</label><input id="kN" autocomplete="name"></div><div class="f"><label for="kP">Mobile (10 digits)</label><input id="kP" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel-national"></div>
+<div class="r2"><div class="f"><label for="kZ">Pincode</label><input id="kZ" inputmode="numeric" maxlength="6" value="676508"></div><div class="f"><label for="kC">City</label><input id="kC" value="Tirurangadi"></div></div>
+<div class="f"><label for="kA">Address</label><textarea id="kA"></textarea></div><div class="bill" id="kB"></div><p class="msg" id="kX" role="alert"></p></form><div class="ok" id="kOk" hidden></div></div>
+<div class="lf"><button class="b by" id="po" style="flex:1">Continue to Google Pay</button></div></div></aside>
+<aside class="lyr dr" id="dW" aria-label="Wishlist"><div class="lh"><h2>My wishlist</h2><button class="ib" data-x>Close</button></div><div class="lb" id="wL"></div></aside>
+<div class="lyr md" id="mS" role="dialog" aria-modal="true" aria-label="Seller and admin"><div class="lh"><h2>Seller and Admin</h2><button class="ib" data-x>Close</button></div><div class="lb">
+<form class="frm" id="sfm" novalidate><div class="f"><label for="aN">Product name</label><input id="aN"></div>
+<div class="r2"><div class="f"><label for="aP">Selling price (₹)</label><input id="aP" type="number" min="1" inputmode="numeric"></div><div class="f"><label for="aM">MRP (₹)</label><input id="aM" type="number" min="1" inputmode="numeric"></div></div>
+<div class="r2"><div class="f"><label for="aC">Category</label><input id="aC" list="cl" value="Nursery"><datalist id="cl"></datalist></div><div class="f"><label for="aS">Stock</label><input id="aS" type="number" min="0" inputmode="numeric" value="10"></div></div>
+<div class="f"><label for="aD">Description</label><textarea id="aD"></textarea></div><div class="f"><label for="aF">Features (one per line)</label><textarea id="aF"></textarea></div>
+<div class="f"><label for="aU">Photo URL</label><input id="aU" type="url" placeholder="https://..."></div><div class="f"><label for="aI">Or upload photo</label><input id="aI" type="file" accept="image/*"></div>
+<div class="r2"><div class="f"><label for="aSN">Seller name</label><input id="aSN"></div><div class="f"><label for="aSW">Seller WhatsApp</label><input id="aSW" type="tel" inputmode="numeric"></div></div>
+<div class="f"><label for="aSP">Seller price (what seller gets, ₹)</label><input id="aSP" type="number" min="1" inputmode="numeric"></div>
+<p class="g" id="cm">Commission: enter prices</p><p class="msg" id="aX" role="alert"></p><button class="b by" type="submit">Save product</button></form>
+<h3 style="margin-top:18px">Admin <button class="b bl" id="adm" style="min-height:36px;margin-left:8px"></button></h3><p class="pa" style="margin-top:6px">Admin on: your products publish instantly and cards show Delete. Admin off: seller products wait here as Pending.</p>
+<h3 style="margin-top:14px">Pending</h3><div id="pL"></div><h3 style="margin-top:14px">Seller products live</h3><div id="lL"></div></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){'use strict';
+/* ====== SETTINGS ====== */
+var WA='919744436943',REF='https://www.hyzinsmart.com',PAGE=8;
+var SEED=[
+{id:'p1',name:'HYZIN Smart Cradle',price:7999,mrp:9999,r:4.5,rv:1234,cat:'Cradles',stock:12,desc:'Hears your baby cry, rocks automatically and plays lullabies. Control it from your phone.',feat:['AI cry detection','Auto rocking','App control','Sleep tracking']},
+{id:'p2',name:'HYZIN Basic Cradle',price:4999,mrp:6499,r:4.0,rv:892,cat:'Cradles',stock:20,desc:'Sturdy motor-rocked cradle with speed control, lullabies and an on/off switch.',feat:['Motor rocking','Speed controller','Built-in lullabies']},
+{id:'p3',name:'Cradle Mattress + Sheet Set',price:1299,mrp:1799,r:4.0,rv:210,cat:'Bedding',stock:3,desc:'Soft, breathable mattress with two washable sheets for HYZIN cradles.',feat:['Breathable mattress','Two washable sheets']},
+{id:'p4',name:'Soft Glow Night Lamp',price:699,mrp:999,r:4.5,rv:430,cat:'Nursery',stock:8,desc:'Warm dim light for night feeds. Rechargeable with a touch switch.',feat:['Warm dim light','Touch switch','USB charging']},
+{id:'p5',name:'Portable Lullaby Speaker',price:1199,mrp:1599,r:4.0,rv:180,cat:'Nursery',stock:2,desc:'Small Bluetooth speaker for lullabies and white noise at home or on the go.',feat:['Bluetooth','Rechargeable']},
+{id:'p6',name:'Cradle Mosquito Net',price:499,mrp:799,r:4.5,rv:320,cat:'Bedding',stock:15,desc:'Fine-mesh net with a zip opening that fits over the cradle frame.',feat:['Fine mesh','Zip opening']},
+{id:'p7',name:'Soft Diaper Changing Mat',price:599,mrp:899,r:4.0,rv:150,cat:'Nursery',stock:25,desc:'Padded wipe-clean mat for quick diaper changes.',feat:['Wipe-clean','Folds flat']},
+{id:'p8',name:'Hanging Soft Toys',price:399,mrp:599,r:4.5,rv:98,cat:'Bedding',stock:30,desc:'Soft toys that clip onto the cradle bar.',feat:['Baby-safe fabric','Clips on']}];
+var CATS=['All','Cradles','Bedding','Nursery','Accessories','Kids','Home','Beauty'];
+/* ====== HELPERS ====== */
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var inr=function(n){return'₹'+Number(n).toLocaleString('en-IN')};
+function ld(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2500)}
+function ph(n){var s="<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect width='400' height='400' fill='#F4F4F5'/><rect y='340' width='400' height='60' fill='#DFE104'/><text x='200' y='200' font-family='Arial' font-weight='700' font-size='26' fill='#09090B' text-anchor='middle'>"+esc(String(n).slice(0,24))+"</text><text x='200' y='380' font-family='Arial' font-weight='700' font-size='22' text-anchor='middle'>HyzCart</text></svg>";return'data:image/svg+xml,'+encodeURIComponent(s)}
+function img(p){return p.photo||ph(p.name)}
+document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&!t.dataset.fb){t.dataset.fb=1;t.src=ph(t.alt||'HyzCart')}},true);
+/* ====== STATE ====== */
+var custom=ld('hc_custom',[]),pend=ld('hc_pend',[]),cart=ld('hc_cart',[]),wish=ld('hc_wish',[]),orders=ld('hc_orders',[]),admin=ld('hc_admin',false),coupon=false;
+[custom,pend,cart,wish,orders].forEach(function(a){if(!Array.isArray(a))a=[]});
+var F={q:'',cat:'All',sort:'rel',p:'',d:0,r:0,free:false},vis=PAGE,mallOnly=false;
+var P=function(){return SEED.concat(custom)},find=function(id){return P().filter(function(p){return p.id===id})[0]};
+var disc=function(p){return p.mrp>p.price?Math.round((1-p.price/p.mrp)*100):0};
+/* ====== LAYERS ====== */
+function open(id){$$('.lyr.on').forEach(function(l){l.classList.remove('on')});$('#'+id).classList.add('on');$('#sc').classList.add('on');document.body.style.overflow='hidden'}
+function closeAll(){$$('.lyr.on').forEach(function(l){l.classList.remove('on')});$('#sc').classList.remove('on');document.body.style.overflow=''}
+$('#sc').onclick=closeAll;$$('[data-x]').forEach(function(b){b.onclick=closeAll});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+/* ====== TIMER (counts to midnight, resets itself) ====== */
+function tick(){var n=new Date(),m=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,0,0),s=Math.max(0,Math.floor((m-n)/1000)),z=function(x){return(x<10?'0':'')+x};$('#tm').textContent=z(Math.floor(s/3600))+' : '+z(Math.floor(s%3600/60))+' : '+z(s%60)}
+tick();setInterval(tick,1000);
+/* ====== CATEGORIES + FILTERS ====== */
+function renderCats(){
+$('#cc').innerHTML=CATS.map(function(c){return'<button data-c="'+c+'" aria-pressed="'+(F.cat===c&&!mallOnly)+'"><span>'+c.charAt(0)+'</span>'+c+'</button>'}).join('');
+$('#tiles').innerHTML=CATS.slice(1).map(function(c){var n=P().filter(function(p){return p.cat===c}).length;return'<button data-c="'+c+'">'+c+'<br><small>'+n+' items</small></button>'}).join('');
+$('#chips').innerHTML=CATS.map(function(c){return'<button data-c="'+c+'" aria-pressed="'+(F.cat===c&&!mallOnly)+'">'+c+'</button>'}).join('');
+$('#cl').innerHTML=CATS.slice(1).map(function(c){return'<option value="'+c+'">'}).join('')}
+function list(){var w=F.q.toLowerCase().split(/\s+/).filter(Boolean);
+var l=P().filter(function(p){if(mallOnly&&p.id.charAt(0)!=='p')return false;if(F.cat!=='All'&&p.cat!==F.cat)return false;
+var s=(p.name+' '+p.cat+' '+p.desc+' '+p.id).toLowerCase();if(!w.every(function(x){return s.indexOf(x)>=0}))return false;
+if(F.p==='u'&&p.price>=1000)return false;if(F.p==='m'&&(p.price<1000||p.price>5000))return false;if(F.p==='o'&&p.price<=5000)return false;
+if(disc(p)<F.d)return false;if((p.r||0)<F.r)return false;return true});
+if(F.sort==='lo')l.sort(function(a,b){return a.price-b.price});else if(F.sort==='hi')l.sort(function(a,b){return b.price-a.price});
+else if(F.sort==='rt')l.sort(function(a,b){return(b.r||0)-(a.r||0)});else if(F.sort==='ds')l.sort(function(a,b){return disc(b)-disc(a)});return l}
+function card(p){var d=disc(p),on=wish.indexOf(p.id)>=0,out=p.stock<=0;
+return'<article class="c"><button class="ci" data-o="'+p.id+'" aria-label="Details: '+esc(p.name)+'"><img src="'+esc(img(p))+'" alt="'+esc(p.name)+'" loading="lazy"></button>'+(d?'<span class="dt">'+d+'% OFF</span>':'')+
+'<button class="hrt" data-w="'+p.id+'" aria-pressed="'+on+'" aria-label="Wishlist '+esc(p.name)+'">♥</button><div class="cb"><button class="nm" data-o="'+p.id+'">'+esc(p.name)+'</button><p class="ds">'+esc(p.desc)+'</p>'+
+'<div>'+(p.r>0?'<span class="rp">'+p.r.toFixed(1)+' ★ ('+p.rv+')</span> ':'')+(p.id.charAt(0)==='p'?'<span class="ml">Mall</span>':'')+'</div>'+
+'<div class="pr"><b>'+inr(p.price)+'</b><s>'+inr(p.mrp)+'</s>'+(d?'<span class="g">'+d+'% കിഴിവ്</span>':'')+'</div>'+
+'<div class="g">'+inr(Math.max(0,p.price-100))+' ലഭിക്കുന്നു 1 പ്രത്യേക ഓഫറിനൊപ്പം</div><div><span class="of">'+inr(p.mrp-p.price)+' കിഴിവ് | 2 ഓഫറുകൾ</span> <span class="of">0% Commission</span></div>'+
+'<div class="g">Free Delivery • Google Pay / UPI</div>'+(out?'<div class="lo">Out of stock</div>':p.stock<=5?'<div class="lo">Only '+p.stock+' left! Hurry!</div>':'')+
+'<div class="ca"><button class="b by" data-a="'+p.id+'"'+(out?' disabled':'')+'>ADD TO CART</button><button class="b bo" data-b="'+p.id+'"'+(out?' disabled':'')+'>BUY NOW</button>'+(admin&&p.id.charAt(0)==='c'?'<button class="b dd" data-d="'+p.id+'">Delete (Admin)</button>':'')+'</div></div></article>'}
+function renderGrid(){var l=list();$('#grid').innerHTML=l.slice(0,vis).map(card).join('')||'<div class="none">No products found. Try another search or category.</div>';
+if(l.length>vis)$('#grid').insertAdjacentHTML('beforeend','<button class="b bl none" id="more">Show more ('+(l.length-vis)+')</button>');
+$('#cn').textContent=l.length+' products';renderCats()}
+function setCat(c,go){F.cat=c;mallOnly=false;vis=PAGE;renderGrid();closeAll();if(go)$('#shop').scrollIntoView()}
+/* ====== CART ====== */
+function rows(){return cart.map(function(i){return{p:find(i.id),q:i.q}}).filter(function(r){return r.p})}
+function bill(){var R=rows(),mrp=0,sub=0,n=0;R.forEach(function(r){mrp+=Math.max(r.p.mrp,r.p.price)*r.q;sub+=r.p.price*r.q;n+=r.q});var cp=coupon&&sub>=500?100:0;return{R:R,mrp:mrp,sub:sub,cp:cp,tot:sub-cp,sv:mrp-sub+cp,n:n}}
+function billH(b){return'<div><span>Subtotal (MRP)</span><span>'+inr(b.mrp)+'</span></div><div><span>Discount</span><span class="sv">-'+inr(b.mrp-b.sub)+'</span></div>'+(b.cp?'<div><span>Code HYZ100</span><span class="sv">-'+inr(b.cp)+'</span></div>':'')+'<div><span>Delivery</span><span class="sv">FREE</span></div><div class="tot"><span>Total</span><span>'+inr(b.tot)+'</span></div><div class="sv">You save '+inr(b.sv)+'</div>'}
+function save(){sv('hc_cart',cart);sv('hc_wish',wish)}
+function counts(){var n=bill().n;$('#nC').textContent=n;$('#nC').hidden=!n;$('#nW').textContent=wish.length;$('#nW').hidden=!wish.length}
+function renderCart(){cart=cart.filter(function(i){return find(i.id)});var b=bill();$('#cTot').textContent=inr(b.tot);$('#goCo').disabled=!b.R.length;
+if(!b.R.length){$('#cL').innerHTML='<div class="none">Your cart is empty.</div>';counts();return}
+var need=500-b.sub,pg=Math.min(100,Math.round(b.sub/5));
+$('#cL').innerHTML=b.R.map(function(r){return'<div class="it"><img src="'+esc(img(r.p))+'" alt="'+esc(r.p.name)+'"><div><b>'+esc(r.p.name)+'</b><div>'+inr(r.p.price)+'</div><div><span class="qt"><button data-cq="-1" data-i="'+r.p.id+'" aria-label="Decrease">-</button><output>'+r.q+'</output><button data-cq="1" data-i="'+r.p.id+'" aria-label="Increase">+</button></span><button class="rm" data-r="'+r.p.id+'">Remove</button></div></div></div>'}).join('')+
+'<div class="bill"><b>'+(need>0?'Add Rs '+need+' more to unlock code HYZ100 (Rs 100 off)':'Code HYZ100 unlocked: Rs 100 off')+'</b><div class="pg"><i style="width:'+pg+'%"></i></div><button class="b '+(coupon?'bk':'by')+'" id="cp"'+(need>0?' disabled':'')+'>'+(coupon?'HYZ100 applied (tap to remove)':'Apply code HYZ100')+'</button></div><div class="bill" style="margin-top:8px">'+billH(b)+'</div>';counts()}
+function addC(id,q){var p=find(id);if(!p||p.stock<=0)return false;var it=cart.filter(function(i){return i.id===id})[0];if(!it){it={id:id,q:0};cart.push(it)}it.q=Math.min(it.q+q,p.stock);save();renderCart();return true}
+function step(s){var k=s==='k';$('#cV').hidden=k;$('#kV').hidden=!k;$('#cT').textContent=k?'Delivery & payment':'My cart';if(k){$('#kB').innerHTML=billH(bill());$('#kOk').hidden=true;$('#kf').hidden=false;$('#po').hidden=false;$('#kX').textContent='';var a=ld('hc_addr',{});if(a.n)$('#kN').value=a.n;if(a.p)$('#kP').value=a.p;if(a.a)$('#kA').value=a.a}}
+function openCart(s){renderCart();step(s||'c');open('dC')}
+function waUrl(t){return'https://wa.me/'+WA+'?text='+encodeURIComponent(t)}
+function placeOrder(){var v=function(id){return $(id).value.trim()},bad=function(m,id){$('#kX').textContent=m;$(id).focus()};
+if(v('#kN').length<2)return bad('Enter your full name.','#kN');if(!/^[6-9]\d{9}$/.test(v('#kP')))return bad('Enter a valid 10 digit mobile number.','#kP');
+if(!/^\d{6}$/.test(v('#kZ')))return bad('Enter a 6 digit pincode.','#kZ');if(v('#kC').length<2)return bad('Enter your city.','#kC');if(v('#kA').length<8)return bad('Enter your full address.','#kA');
+var b=bill();if(!b.R.length)return;
+sv('hc_addr',{n:v('#kN'),p:v('#kP'),a:v('#kA')});
+var id='HC'+String(Date.now()).slice(-6),note='HyzCart order '+id;
+var upi='upi://pay?'+new URLSearchParams({pa:'mashoodtnl-3@okhdfcbank',pn:'HyzCart',am:b.tot.toFixed(2),cu:'INR',tn:note}).toString();
+var gpay='intent://pay?'+new URLSearchParams({pa:'mashoodtnl-3@okhdfcbank',pn:'HyzCart',am:b.tot.toFixed(2),cu:'INR',tn:note}).toString()+'#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end';
+var t='Hello HyzCart! I have placed order '+id+' and am sharing payment details.\\n\\n';
+b.R.forEach(function(r,i){t+=(i+1)+'. '+r.p.name+' x'+r.q+' = '+inr(r.p.price*r.q)+'\\n'});
+t+='\\nSubtotal: '+inr(b.sub)+(b.cp?'\\nCode HYZ100: -'+inr(b.cp):'')+'\\nDelivery: FREE\\nTotal to pay: '+inr(b.tot)+'\\nPayment method: Google Pay / UPI\\nUPI ID: mashoodtnl-3@okhdfcbank\\n\\nName: '+v('#kN')+'\\nMobile: '+v('#kP')+'\\nAddress: '+v('#kA')+', '+v('#kC')+' - '+v('#kZ')+'\\n\\nPayment status: Customer says payment completed; please verify the UPI credit before dispatch.';
+var wa=waUrl(t);
+$('#kf').hidden=true;$('#po').hidden=true;
+var o=$('#kOk');o.hidden=false;
+o.innerHTML='<b>Order '+id+' — payment required</b><p>Total to pay: <strong>'+inr(b.tot)+'</strong></p><p>1. Tap below to open Google Pay and complete the payment.</p><a class="b by" style="width:100%" href="'+esc(gpay)+'">Pay with Google Pay</a><p style="text-align:center">If Google Pay does not open, use another UPI app:</p><a class="b bl" style="width:100%" href="'+esc(upi)+'">Pay with another UPI app</a><p>2. After paying, tap below to send your order details on WhatsApp.</p><a class="b bo" style="width:100%" target="_blank" rel="noopener" href="'+esc(wa)+'">I have paid — Send order on WhatsApp</a><p class="msg">Important: This website cannot automatically verify UPI payment. HyzCart must confirm the payment received in its bank account before dispatch.</p><textarea id="ot" readonly>'+esc(t)+'</textarea><button class="b bl" id="cpo">Copy order details</button>';
+$('#cpo').onclick=function(){copy(t,'Order details copied')};
+}
+function copy(t,m){function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast(m)}catch(e){toast('Copy failed. Select the text and copy.')}a.remove()}
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(function(){toast(m)},fb);else fb()}
+/* ====== WISHLIST + TRACKING + TESTIMONIALS ====== */
+function toggleW(id){var i=wish.indexOf(id);if(i>=0)wish.splice(i,1);else wish.push(id);save();renderGrid();renderWish();counts();toast(i>=0?'Removed from wishlist':'Saved to wishlist')}
+function renderWish(){wish=wish.filter(function(i){return find(i)});$('#wL').innerHTML=wish.length?wish.map(function(i){var p=find(i);return'<div class="it"><img src="'+esc(img(p))+'" alt="'+esc(p.name)+'"><div><b>'+esc(p.name)+'</b><div>'+inr(p.price)+'</div><button class="b by" data-wa="'+p.id+'" style="min-height:40px">Move to cart</button><button class="rm" data-w="'+p.id+'">Remove</button></div></div>'}).join(''):'<div class="none">Your wishlist is empty. Tap the heart on a product.</div>'}
+var S=['Placed','Packed','Shipped','Delivered'];
+function renderTrack(){var o=orders[0],s=o?o.s:0;$('#tkI').textContent=o?'Order '+o.id+' ('+inr(o.total)+')':'Demo order. Place an order to track yours.';$('#st').innerHTML=S.map(function(n,i){return'<div class="'+(i<=s?'on':'')+'">'+n+'</div>'}).join('')}
+$('#tkN').onclick=function(){if(orders[0]){orders[0].s=(orders[0].s+1)%4;sv('hc_orders',orders)}else{demo=(demo+1)%4}renderTrack()};var demo=0;
+var _rt=renderTrack;renderTrack=function(){if(!orders[0]){$('#tkI').textContent='Demo order. Place an order to track yours.';$('#st').innerHTML=S.map(function(n,i){return'<div class="'+(i<=demo?'on':'')+'">'+n+'</div>'}).join('')}else _rt()};
+$('#tst').innerHTML=[1,2,3,4,5,6].map(function(i){return'<div class="q"><b>[PLACEHOLDER] Customer '+i+'</b>Add a real customer story here. Do not publish invented reviews.</div>'}).join('');
+/* ====== SELLER, COMMISSION, ADMIN ====== */
+function com(){var s=Number($('#aP').value),k=Number($('#aSP').value);$('#cm').textContent=(s>0&&k>0&&s>=k)?'Commission: '+inr(s-k)+' ('+Math.round((s-k)/s*100)+'% of selling price). Seller gets '+inr(k)+', HyzCart keeps '+inr(s-k)+'.':'Commission: selling price must be at least the seller price'}
+['#aP','#aSP'].forEach(function(s){$(s).oninput=com});com();
+function renderAdmin(){$('#adm').textContent=admin?'ON (tap to turn off)':'OFF (tap to turn on)';
+$('#pL').innerHTML=pend.length?pend.map(function(p){return'<div class="it"><img src="'+esc(img(p))+'" alt=""><div><b>'+esc(p.name)+'</b><div>'+inr(p.price)+' | Seller '+esc(p.seller.n)+' '+esc(p.seller.w)+'</div><div class="g">Commission '+inr(p.price-p.seller.p)+'</div><button class="b by" data-ap="'+p.id+'" style="min-height:40px">Approve</button> <button class="rm" data-rj="'+p.id+'">Reject</button></div></div>'}).join(''):'<p class="pa">No pending products.</p>';
+$('#lL').innerHTML=custom.length?custom.map(function(p){return'<div class="it"><img src="'+esc(img(p))+'" alt=""><div><b>'+esc(p.name)+'</b><div>'+inr(p.price)+'</div><button class="rm" data-d="'+p.id+'">Delete</button></div></div>'}).join(''):'<p class="pa">None yet.</p>'}
+function persist(){return sv('hc_custom',custom)&&sv('hc_pend',pend)}
+function reader(f,cb){var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,700/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.8))};im.onerror=function(){cb('')};im.src=fr.result};fr.onerror=function(){cb('')};fr.readAsDataURL(f)}
+function addProd(photo){var g=function(i){return $(i).value.trim()},pr=Number(g('#aP')),sp=Number(g('#aSP')),st=g('#aS');
+var p={id:'c'+Date.now(),name:g('#aN'),price:pr,mrp:Math.max(Number(g('#aM'))||pr,pr),r:0,rv:0,cat:g('#aC')||'Nursery',stock:st===''?10:Math.max(0,parseInt(st,10)||0),desc:g('#aD'),feat:g('#aF').split('\n').map(function(x){return x.trim()}).filter(Boolean),photo:photo||g('#aU'),seller:{n:g('#aSN'),w:g('#aSW'),p:sp}};
+if(admin)custom.push(p);else pend.push(p);
+if(!persist()){if(admin)custom.pop();else pend.pop();$('#aX').textContent='Storage is full. Use a Photo URL instead of an upload.';return}
+$('#sfm').reset();$('#aC').value='Nursery';$('#aS').value=10;com();$('#aX').textContent='';renderAdmin();renderGrid();toast(admin?'Product Added!':'Product submitted. Waiting for admin approval.');if(admin){closeAll();$('#shop').scrollIntoView()}}
+$('#sfm').onsubmit=function(e){e.preventDefault();var x=$('#aX'),g=function(i){return $(i).value.trim()};
+if(!g('#aN'))return x.textContent='Enter the product name.';if(!(Number(g('#aP'))>0))return x.textContent='Enter the selling price.';if(!g('#aD'))return x.textContent='Enter a description.';
+if(!g('#aSN'))return x.textContent='Enter the seller name.';if(!/^\d{10,13}$/.test(g('#aSW')))return x.textContent='Enter the seller WhatsApp number (digits only).';
+var sp=Number(g('#aSP'));if(!(sp>0)||sp>Number(g('#aP')))return x.textContent='Seller price must be more than 0 and not above the selling price.';
+var f=$('#aI').files[0];if(f)reader(f,addProd);else addProd('')};
+$('#adm').onclick=function(){admin=!admin;sv('hc_admin',admin);renderAdmin();renderGrid();toast(admin?'Admin mode on':'Admin mode off')};
+/* ====== EVENTS ====== */
+document.addEventListener('click',function(e){var t=e.target.closest('[data-c],[data-a],[data-b],[data-w],[data-o],[data-wa],[data-cq],[data-r],[data-d],[data-ap],[data-rj],[data-t],#more,#cp');if(!t)return;var d=t.dataset;
+if(d.c!==undefined){setCat(d.c,true);return}
+if(d.a){toast(addC(d.a,1)?'Added to cart':'Out of stock');return}
+if(d.b){if(addC(d.b,1))openCart('k');return}
+if(d.w){toggleW(d.w);return}
+if(d.wa){if(addC(d.wa,1)){wish=wish.filter(function(i){return i!==d.wa});save();renderWish();renderGrid();toast('Moved to cart')}return}
+if(d.o){var p=find(d.o);if(p)toast(p.name+' - '+inr(p.price)+'. '+p.feat.join(', '));return}
+if(d.cq){var it=cart.filter(function(i){return i.id===d.i})[0],p2=find(d.i);if(it&&p2){it.q=Math.max(1,Math.min(p2.stock,it.q+Number(d.cq)));save();renderCart()}return}
+if(d.r){cart=cart.filter(function(i){return i.id!==d.r});save();renderCart();return}
+if(d.d){if(confirm('Delete this product?')){custom=custom.filter(function(p){return p.id!==d.d});persist();renderAdmin();renderGrid()}return}
+if(d.ap){var i2=pend.map(function(p){return p.id}).indexOf(d.ap);if(i2>=0){custom.push(pend.splice(i2,1)[0]);persist();renderAdmin();renderGrid();toast('Product approved and live')}return}
+if(d.rj){pend=pend.filter(function(p){return p.id!==d.rj});persist();renderAdmin();toast('Product rejected');return}
+if(d.t){e.preventDefault();window.open(waUrl('Hello HyzCart! I want to know more about the HYZIN '+d.t+' cradle.'),'_blank');return}
+if(t.id==='more'){vis+=PAGE;renderGrid();return}
+if(t.id==='cp'){coupon=!coupon;renderCart();return}});
+$('#bCart').onclick=function(){openCart('c')};$('#bWish').onclick=function(){renderWish();open('dW')};
+$('#goCo').onclick=function(){step('k')};$('#bk').onclick=function(){step('c')};$('#po').onclick=placeOrder;
+$('#bSell').onclick=function(){renderAdmin();open('mS')};
+$('#bProf').onclick=function(){$('#track').scrollIntoView();toast('Your orders are below')};
+$('#bRef').onclick=function(){copy(REF,'Refer link copied')};$('#cpRef').onclick=function(){copy(REF,'Refer link copied')};
+$('#dl').onclick=function(){toast('Delivering to Tirurangadi 676508 and all India. Google Pay / UPI accepted.')};
+$('#nMall').onclick=function(){mallOnly=true;F.cat='All';vis=PAGE;renderGrid();$('#shop').scrollIntoView();toast('HYZIN official Mall products')};
+$('#q').oninput=function(){F.q=this.value;vis=PAGE;renderGrid()};
+$('#sf').onsubmit=function(e){e.preventDefault();F.q=$('#q').value.trim();renderGrid();$('#shop').scrollIntoView()};
+$('#mic').onclick=function(){var R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R){toast('Voice search is not supported in this browser');return}
+try{var r=new R();r.lang='en-IN';r.onresult=function(e){var s=e.results[0][0].transcript;$('#q').value=s;F.q=s;renderGrid();$('#shop').scrollIntoView()};r.onerror=function(){toast('Could not hear you. Try again.')};r.start();toast('Listening...')}catch(x){toast('Voice search failed')}};
+$('#fFree').onchange=function(){F.free=this.checked;renderGrid()};
+$('#fP').onchange=function(){F.p=this.value;renderGrid()};$('#fD').onchange=function(){F.d=Number(this.value);renderGrid()};$('#fR').onchange=function(){F.r=Number(this.value);renderGrid()};$('#fS').onchange=function(){F.sort=this.value;renderGrid()};
+$('#cf').onsubmit=function(e){e.preventDefault();var g=function(i){return $(i).value.trim()};if(g('#cN').length<2)return $('#cX').textContent='Enter your name.';
+if(!/^\d{10}$/.test(g('#cP')))return $('#cX').textContent='Enter a 10 digit phone number.';if(g('#cM').length<3)return $('#cX').textContent='Enter your message.';
+$('#cX').textContent='';window.open(waUrl('Hello HyzCart!\nName: '+g('#cN')+'\nEmail: '+g('#cE')+'\nPhone: '+g('#cP')+'\n'+g('#cM')),'_blank');toast('Opening WhatsApp')};
+/* ====== HERO SLIDER ====== */
+var sl=$$('.sl'),si=0,tm;function show(n){si=(n+sl.length)%sl.length;sl.forEach(function(s,i){s.classList.toggle('on',i===si)});$$('#dots button').forEach(function(b,i){b.setAttribute('aria-current',String(i===si))})}
+function auto(){clearInterval(tm);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)tm=setInterval(function(){show(si+1)},5000)}
+$('#dots').innerHTML=sl.map(function(_,i){return'<button aria-label="Slide '+(i+1)+'" data-s="'+i+'"></button>'}).join('');
+$('#dots').onclick=function(e){var b=e.target.closest('[data-s]');if(b){show(Number(b.dataset.s));auto()}};
+$('#pS').onclick=function(){show(si-1);auto()};$('#nS').onclick=function(){show(si+1);auto()};
+/* ====== START ====== */
+show(0);auto();renderGrid();renderCart();renderWish();renderTrack();renderAdmin();counts();
+})();
+</script>
+</body>
+</html>
