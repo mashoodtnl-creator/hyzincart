@@ -1,25 +1,4 @@
-<!DOCTYPE html><html lang="ml"><head><style>
-@font-face {
-  font-family: "Optimistic";
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Optimistic Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
-}
-:where(html) {
-  font-family: "Optimistic", system-ui, sans-serif;
-}
-:where(code, pre, kbd, samp) {
-  font-family: "Optimistic Mono", ui-monospace, monospace;
-}
-</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="ml"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HYZCART - Shopwise Model</title>
 <style>
 *{box-sizing:border-box;font-family:system-ui} body{margin:0;background:#fff;color:#111}
@@ -46,6 +25,10 @@ footer h3{font-size:22px} footer a{color:#ddd;text-decoration:none;display:block
 .social{display:flex;gap:10px;margin:14px 0} .social span{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff}
 .news{display:flex;background:#fff;border-radius:30px;padding:4px;margin-top:12px} .news input{border:0;flex:1} .news button{background:#ff2a5a;color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:20px}
 .catChip{padding:10px 14px;border-radius:20px;border:2px solid #ddd;background:#fff;cursor:pointer}
+.admProd{display:flex;align-items:center;gap:8px;background:#f6f7fb;padding:8px;border-radius:10px;margin:6px 0}
+.admProd img{width:44px;height:44px;object-fit:cover;border-radius:8px}
+.admProd span{flex:1;font-size:14px}
+.admProd button{background:#e53935;color:#fff;border:0;border-radius:8px;padding:8px 10px;cursor:pointer}
 </style></head>
 <body>
 
@@ -118,31 +101,65 @@ footer h3{font-size:22px} footer a{color:#ddd;text-decoration:none;display:block
 </div><p id="catShow"><b>Selected: Cradle</b></p></div>
 <div style="border:2px dashed #ff2a5a;padding:12px;border-radius:12px;background:#fff5f7"><b>📷 Product Photo</b><p>👇 Method 1: Gallery ൽ നിന്ന്</p><input type="file" id="pImgFile" accept="image/*" onchange="previewPhoto(this)" style="display:block;width:100%;padding:10px;background:#fff;border:1px solid #ddd;border-radius:10px"><img id="pImgPreview" style="width:100%;max-height:160px;object-fit:cover;border-radius:10px;display:none;margin-top:6px"><p>Method 2: Photo Link Paste ചെയ്യുക</p></div>
 <input id="pImg" placeholder="Photo Link (URL) Paste ചെയ്യുക"><textarea id="pDesc" placeholder="Description"></textarea>
-<button class="btn2" style="background:#ff2a5a;color:#fff;width:100%" onclick="addProduct()">+ Add Product</button><h3>Orders</h3><div id="adminOrders"><small>Orders ഇവിടെ വരും</small></div>
+<button class="btn2" style="background:#ff2a5a;color:#fff;width:100%" onclick="addProduct()">+ Add Product</button>
+<h3>Products (ഒഴിവാക്കാൻ 🗑 ഞെക്കുക)</h3><div id="adminProducts"></div>
+<h3>Orders</h3><div id="adminOrders"><small>Orders ഇവിടെ വരും</small></div>
 <button onclick="closeModal('adminModal')">Close</button></div></div>
 
 <script>
-let products=[
- {id:1,name:"Hyzin Smart Cradle",price:4999,old:9999,cat:"Cradle",img:"https://picsum.photos/600/400?random=1",desc:"Auto Swing | Tharattu | App Control"},
- {id:2,name:"Enim Expedita Sed - Stool",price:1299,old:1999,cat:"Home",img:"https://picsum.photos/600/400?random=2",desc:"Wooden Stool - Shopwise Style"},
- {id:3,name:"Baby Soft Toy",price:499,old:999,cat:"Toys",img:"https://picsum.photos/600/400?random=3",desc:"Soft & Safe"},
- {id:4,name:"Baby Diaper Pack",price:899,old:1299,cat:"Baby Care",img:"https://picsum.photos/600/400?random=4",desc:"Super Soft"},
+const DEFAULT_PRODUCTS=[
+ {id:1,name:"Hyzin Smart Cradle",price:4999,old:9999,cat:"Cradle",img:"https://picsum.photos/600/400?random=1",desc:"Auto Swing | Tharattu | App Control"}
 ];
+let products=loadProducts();
 let cart=[]; let currentCat='All'; let selectedCat='Cradle'; let uploadedPhoto='';
+
+function loadProducts(){
+ try{let s=localStorage.getItem('hyz_products'); if(s){let a=JSON.parse(s); if(Array.isArray(a)) return a;}}catch(e){}
+ return DEFAULT_PRODUCTS.slice();
+}
+function saveProducts(){
+ try{localStorage.setItem('hyz_products',JSON.stringify(products));}
+ catch(e){alert('Photo വലുതാണ് - Save ആയില്ല. Photo Link (URL) ഉപയോഗിക്കുക.');}
+}
 function toggleDrawer(){let d=document.getElementById('drawer'); d.style.display=d.style.display==='block'?'none':'block'} function closeDrawer(){document.getElementById('drawer').style.display='none'}
 function filterCat(c,btn){currentCat=c; document.querySelectorAll('.catrow button').forEach(b=>b.classList.remove('active')); if(btn) btn.classList.add('active'); render();}
 function render(){let q=(document.getElementById('searchBox').value||'').toLowerCase(); let list=products.filter(p=>(currentCat==='All'||p.cat===currentCat)&&p.name.toLowerCase().includes(q));
-document.getElementById('productGrid').innerHTML=list.map(p=>`<div class="prod"><div class="imgwrap"><img src="${p.img}" onerror="this.src='https://picsum.photos/600/400?random=9'"><div class="icons"><span onclick="addToCart(${p.id})">🛒</span><span onclick="alert('Saved to Wishlist')">♡</span><span>🔖</span></div></div><div class="prodBody"><h3>${p.name}</h3><p>${p.desc}</p><div class="price"><b>₹${p.price}</b> <s>₹${p.old}</s></div><button class="addBtn" onclick="addToCart(${p.id})">🛒 Add To Cart</button></div></div>`).join('')||'<p>No products</p>';}
+document.getElementById('productGrid').innerHTML=list.map(p=>`<div class="prod"><div class="imgwrap"><img src="${p.img}" onerror="this.src='https://picsum.photos/600/400?random=9'"><div class="icons"><span onclick="addToCart(${p.id})">🛒</span><span onclick="alert('Saved to Wishlist')">♡</span><span>🔖</span></div></div><div class="prodBody"><h3>${p.name}</h3><p>${p.desc}</p><div class="price"><b>₹${p.price}</b> <s>₹${p.old}</s></div><button class="addBtn" onclick="addToCart(${p.id})">🛒 Add To Cart</button></div></div>`).join('')||'<p style="padding:0 16px">No products</p>';
+ renderAdminProducts();}
+function renderAdminProducts(){
+ let el=document.getElementById('adminProducts'); if(!el) return;
+ el.innerHTML=products.map(p=>`<div class="admProd"><img src="${p.img}" onerror="this.src='https://picsum.photos/100/100?random=9'"><span><b>${p.name}</b><br>₹${p.price} · ${p.cat}</span><button onclick="deleteProduct(${p.id})">🗑</button></div>`).join('')||'<small>Products ഒന്നുമില്ല</small>';
+}
+function deleteProduct(id){
+ let p=products.find(x=>x.id===id); if(!p) return;
+ if(!confirm('"'+p.name+'" ഒഴിവാക്കട്ടെ?')) return;
+ products=products.filter(x=>x.id!==id);
+ cart=cart.filter(x=>x.id!==id);
+ document.getElementById('cartCount2').textContent=cart.length; document.getElementById('cartBadge').textContent=cart.length;
+ saveProducts(); render(); renderCart();
+}
 function getTotal(){return cart.reduce((a,b)=>a+b.price,0)}
-function addToCart(id){let p=products.find(x=>x.id===id); cart.push(p); document.getElementById('cartCount2').textContent=cart.length; document.getElementById('cartBadge').textContent=cart.length; renderCart(); alert('Added to Cart - '+p.name);}
+function addToCart(id){let p=products.find(x=>x.id===id); if(!p) return; cart.push(p); document.getElementById('cartCount2').textContent=cart.length; document.getElementById('cartBadge').textContent=cart.length; renderCart(); alert('Added to Cart - '+p.name);}
 function renderCart(){document.getElementById('cartItems').innerHTML=cart.map(c=>`<p>${c.name} - ₹${c.price}</p>`).join(''); document.getElementById('total').textContent='Total: ₹'+getTotal(); let upi='upi://pay?pa=mashoodtnl-3@okhdfcbank&pn=Hyzcart&am='+getTotal()+'&cu=INR&tn=Hyzcart Order'; try{document.getElementById('qrImg').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(upi);}catch(e){}}
-function openModal(id){document.getElementById(id).style.display='flex'; if(id==='cartModal') renderCart();} function closeModal(id){document.getElementById(id).style.display='none'}
+function renderOrders(){
+ let orders=[]; try{orders=JSON.parse(localStorage.getItem('hyz_orders')||'[]');}catch(e){}
+ if(orders.length) document.getElementById('adminOrders').innerHTML=orders.map(o=>'<div style="background:#f6f7fb;padding:10px;border-radius:10px;margin:6px 0;white-space:pre-wrap">'+o.text+'</div>').join('');
+}
+function openModal(id){document.getElementById(id).style.display='flex'; if(id==='cartModal') renderCart(); if(id==='adminModal'){renderAdminProducts();renderOrders();}} function closeModal(id){document.getElementById(id).style.display='none'}
 function doLogin(){alert('Login Done!'); closeModal('loginModal')}
 function selectCat(btn){selectedCat=btn.getAttribute('data-cat'); document.getElementById('catShow').innerHTML='<b>Selected: '+selectedCat+'</b>'; document.querySelectorAll('.catChip').forEach(b=>{b.style.background='#fff';b.style.color='#111'}); btn.style.background='#111';btn.style.color='#fff';}
 function previewPhoto(inp){if(inp.files&&inp.files[0]){let r=new FileReader(); r.onload=e=>{uploadedPhoto=e.target.result; let im=document.getElementById('pImgPreview'); im.src=uploadedPhoto; im.style.display='block';}; r.readAsDataURL(inp.files[0]);}}
 function copyUPI(){navigator.clipboard.writeText('mashoodtnl-3@okhdfcbank'); alert('UPI Copy ആയി!')}
 function openGPay(){window.location.href='upi://pay?pa=mashoodtnl-3@okhdfcbank&pn=Hyzcart&am='+getTotal()+'&cu=INR&tn=Hyzcart Order';}
-function addProduct(){let n=document.getElementById('pName').value, pr=Number(document.getElementById('pPrice').value||0); if(!n||!pr) return alert('Name & Price കൊടുക്കുക'); products.push({id:Date.now(),name:n,price:pr,old:Number(document.getElementById('pOld').value||pr*2),cat:selectedCat,img:uploadedPhoto||document.getElementById('pImg').value||'https://picsum.photos/600/400?random=5',desc:document.getElementById('pDesc').value||''}); render(); alert('Product Added!'); closeModal('adminModal');}
-function paymentDone(){let utr=document.getElementById('utrInput').value||'No UTR'; let pay=document.querySelector('input[name="pay"]:checked').value; let total=getTotal(); if(total<=0) return alert('Cart Empty'); let txt='NEW PAID ORDER - HYZCART\n'+cart.map(c=>c.name+' - ₹'+c.price).join('\n')+'\nTotal: ₹'+total+'\nPayment: '+pay+' - PAID\nUTR: '+utr+'\nName: '+document.getElementById('custName').value+'\nPhone: '+document.getElementById('custPhone').value+'\nAddress: '+document.getElementById('custAddr').value; let orders=JSON.parse(localStorage.getItem('hyz_orders')||'[]'); orders.push({text:txt,time:new Date().toLocaleString()}); localStorage.setItem('hyz_orders',JSON.stringify(orders)); document.getElementById('adminOrders').innerHTML=orders.map(o=>'<div style="background:#f6f7fb;padding:10px;border-radius:10px;margin:6px 0;white-space:pre-wrap">'+o.text+'</div>').join(''); window.open('https://wa.me/919744436943?text='+encodeURIComponent(txt)); alert('Order അയച്ചു!'); cart=[]; closeModal('cartModal');}
+function addProduct(){
+ let n=document.getElementById('pName').value.trim(), pr=Number(document.getElementById('pPrice').value||0);
+ if(!n||!pr) return alert('Name & Price കൊടുക്കുക');
+ products.push({id:Date.now(),name:n,price:pr,old:Number(document.getElementById('pOld').value||pr*2),cat:selectedCat,img:uploadedPhoto||document.getElementById('pImg').value||'https://picsum.photos/600/400?random=5',desc:document.getElementById('pDesc').value||''});
+ saveProducts(); render();
+ ['pName','pPrice','pOld','pImg','pDesc','pImgFile'].forEach(i=>document.getElementById(i).value='');
+ uploadedPhoto=''; let im=document.getElementById('pImgPreview'); im.style.display='none'; im.src='';
+ alert('Product Added!');
+}
+function paymentDone(){let utr=document.getElementById('utrInput').value||'No UTR'; let pay=document.querySelector('input[name="pay"]:checked').value; let total=getTotal(); if(total<=0) return alert('Cart Empty'); let txt='NEW PAID ORDER - HYZCART\n'+cart.map(c=>c.name+' - ₹'+c.price).join('\n')+'\nTotal: ₹'+total+'\nPayment: '+pay+' - PAID\nUTR: '+utr+'\nName: '+document.getElementById('custName').value+'\nPhone: '+document.getElementById('custPhone').value+'\nAddress: '+document.getElementById('custAddr').value; let orders=JSON.parse(localStorage.getItem('hyz_orders')||'[]'); orders.push({text:txt,time:new Date().toLocaleString()}); localStorage.setItem('hyz_orders',JSON.stringify(orders)); renderOrders(); window.open('https://wa.me/919744436943?text='+encodeURIComponent(txt)); alert('Order അയച്ചു!'); cart=[]; document.getElementById('cartCount2').textContent=0; document.getElementById('cartBadge').textContent=0; closeModal('cartModal');}
 render();
-</script><script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body></html>
+</script></body></html>
